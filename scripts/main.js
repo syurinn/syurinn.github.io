@@ -17,7 +17,7 @@ document.querySelector("html").addEventListener("click", function () {
     alert("别戳我，我怕疼");
 });
 */
-
+/*
 let myImage = document.querySelector("img");
 myImage.onclick = function () {
   let mySrc = myImage.getAttribute("src");
@@ -40,6 +40,7 @@ function setUserName() {
         myHeading.textContent = "hello，" + myName;
     }
 }
+*/
 /*
 if (!localStorage.getItem("name")) {
     setUserName();
