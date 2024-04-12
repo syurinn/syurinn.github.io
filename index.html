@@ -11,12 +11,17 @@
     content="balabalabalabala." /> <!-- 页面简要描述 -->
     <title>My test page</title> <!-- 整个HTML页面的标题 -->
     <link rel="icon" href="favicon.ico" type="image/x-icon" /> <!-- 小图标 -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&amp;subset=chinese-simplified" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
     <script src="scripts/main.js" defer></script>
   </head>
 
   <body>
+    <header>
+      <p>网站的全局页眉</p> 
+      <!--如果它是 <article> 或<section> 的子元素，那么它是这些部分特有的页眉-->
+    </header>
     <head>
       <!-- 本站所有网页的统一主标题 -->
       <h1>My test image</h1>
@@ -42,7 +47,58 @@
       <!-- 网页主体内容 -->
       <article>
         <!-- 此处包含一个 article（一篇文章） -->
-        <img src="images/test1.jpg" alt="My test image" />
+        <h2>图片</h2>
+        <!--<figure>为图片提供一个语义容器，在说明文字和图片之间建立清晰的关联。-->
+        <figure>
+          <img 
+            src="images/test1.jpg" 
+            alt="测试图片"
+            width="100"
+            height="100"
+            title="一个测试图片" />
+          <figurecaption>
+            A test image.
+          </figurecaption>
+        </figure>
+
+        <h2>音视频</h2>
+        <video 
+          controls 
+          width="250" 
+          height="200"
+          preload="auto"
+          poster="poster.png"><!--poster视频封面-->
+          <!--浏览器会检查 <source> 元素，并且播放第一个与其自身 codec 相匹配的媒体。-->
+          <source src="video/rabbit320.mp4" type="video/mp4" />
+          <source src="video/rabbit320.webm" type="video/webm" />
+          <track kind="subtitles" src="video/subtitles-es.vtt" srclang="es" label="Spanish" /> <!--字幕-->
+          <p>你的浏览器不支持此视频。可点击<a href="rabbit320.mp4">此链接</a>观看</p>
+        </video>
+
+        <!--<iframe>将整个 web 页嵌入到另一个网页-->
+        <iframe 
+          src="//player.bilibili.com/player.html?aid=1902269152&bvid=BV1qm411k7Gy&cid=1484195082&p=1" 
+          width="100%"
+          height="500"
+          scrolling="no" 
+          border="0" 
+          frameborder="1" 
+          framespacing="0" 
+          allowfullscreen="true"
+          sandbox> 
+          <p>
+            <a href="https://developer.mozilla.org/zh-CN/docs/Glossary">
+              Fallback link for browsers that don't support iframes
+            </a>
+          </p>
+        </iframe>
+
+        <audio controls>
+          <source src="audio/viper.mp3" type="audio/mp3" />
+          <source src="audio/viper.ogg" type="audio/ogg" />
+          <p>你的浏览器不支持该音频，可点击<a href="viper.mp3">此链接</a>收听。</p>
+        </audio>
+        
         <h2>文字</h2>
         <!--strong粗体，但增加了语义。最好使用span元素-->
         <p>接下来，<strong>拿起笔和纸</strong>，大致勾勒出你所希望的网站样子。<br> <!-- br换行 -->
@@ -60,18 +116,7 @@
         <!--在下载链接时使用 download 属性-->
         <a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN" download="firefox-latest-64bit-installer.exe">下载最新的 Firefox 中文版 - Windows（64 位）
         </a>
-
-        <iframe 
-          src="//player.bilibili.com/player.html?aid=1902269152&bvid=BV1qm411k7Gy&cid=1484195082&p=1" 
-          width="100%"
-          height="500"
-          scrolling="no" 
-          border="0" 
-          frameborder="1" 
-          framespacing="0" 
-          allowfullscreen="true"> 
-        </iframe>
-
+        
         <h2>等价字符</h2>
         <p>HTML中用&lt;p&gt;来定义段落元素。</p>
 
@@ -116,7 +161,7 @@
           <li>
             继续走 300 米，
             <ul> <!--嵌套列表-->
-              <li>学校就在你的右手边</li>
+              <li>学校就在你的<em>右手边</em></li>
               <li>图书馆在你左手边</li>
             </ul>
           </li>
@@ -131,6 +176,7 @@
           <dd><!--描述-->
             戏剧中，某个角色对自己的内心活动或感受进行念白表演，这些台词只面向观众，而其他角色不会听到。
           </dd>
+          <hr /><!--hr元素在文档中生成一条水平分割线，表示文本中主题的变化（例如话题或场景的改变）-->
           <dt>旁白</dt>
           <dd>
             戏剧中，为渲染幽默或戏剧性效果而进行的场景之外的补充注释念白，只面向观众，内容一般都是角色的感受、想法、以及一些背景信息等。
@@ -197,9 +243,86 @@
           咖啡因的化学方程式是 C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>。
         </p>
         <p>如果 x<sup>2</sup> 的值为9，那么 x 的值为3或-3。</p>
-        <h2>span元素</h2>
+
+        <h2>无语义元素</h2>
+        <!--span是一个内联的（inline）无语义元素，最好只用于无法找到更好的语义元素来包含内容时，或者不想增加特定的含义时。-->
+        <p>
+          国王喝得酩酊大醉，在凌晨 1 点时才回到自己的房间，踉跄地走过门口。<span class="editor-note">[编辑批注：此刻舞台灯光应变暗]</span>.
+        </p>        
         <span style="font-size: 32px; margin: 21px 0; display: block;">这不是顶级标题 </span>  
         <p>Japanese example: <span lang="ja">ご飯が熱い。</span></p> <!-- 将文档的分段设置为不同的语言 -->
+        <!--<div> 是一个块级无语义元素，应仅用于找不到更好的块级元素时，或者不想增加特定的意义时。-->
+        <div class="shopping-cart">
+          <h2>购物车</h2>
+          <ul>
+            <li>
+              <p>
+                <a href=""><strong>银耳环</strong></a
+                >：$99.95.
+              </p>
+              <img src="../products/3333-0985/" alt="Silver earrings" />
+            </li>
+            <li>...</li>
+          </ul>
+          <p>售价：$237.89</p>
+        </div>
+
+        <h2>表格</h2>
+        <table>
+          <caption>How I chose to spend my money</caption><!--表格标题-->
+          <colgroup>
+            <col /><!--第一列不采用格式-->
+            <col style="background-color: #97DB9A" /><!--第二列标色-->
+            <col style="background-color: #97DB9A" span="2" /><!--两列标色-->
+          </colgroup>
+          <thead>
+            <tr><!--table row 行-->
+              <!--scope定义表头-->
+              <th scope="col">Purchase</th><!--添加行列标题-->
+              <th scope="col">Location</th>
+              <th scope="col">Date</th>
+              <th scope="col">Evaluation</th>
+              <th scope="col">Cost (€)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Haircut</td><!--td 创建一个单独单元格-->
+              <td>Hairdresser</td>
+              <td>12/09</td>
+              <td>Great idea</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <th scope="row">Lasagna</td>
+              <td>Restaurant</td>
+              <td>12/09</td>
+              <td>Regrets</td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <th scope="row">Shoes</td>
+              <td>Shoeshop</td>
+              <td>13/09</td>
+              <td>Big regrets</td>
+              <td>65</td>
+            </tr>
+            <tr>
+              <th scope="row">Toothpaste</td>
+              <td>Supermarket</td>
+              <td>13/09</td>
+              <td>Good</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" scope="col">SUM</td>
+              <td>118</td>
+            </tr>
+          </tfoot>
+         </table>
+
         <input type="text" disabled="disabled" />
         <!-- 使用 disabled 属性来防止终端用户输入文本到输入框中 -->
         <input type="text" disabled />
