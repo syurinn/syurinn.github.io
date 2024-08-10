@@ -269,7 +269,7 @@
         (function () {
             var a_idx = 0;
             window.onclick = function (event) {
-                var a = new Array("❤宝宝❤", "❤我爱你❤", "❤爱你一万年❤");
+                var a = new Array("❤垚垚宝宝❤", "❤我爱你❤", "❤爱你一万年❤", "❤七夕快乐❤", "❤爱你在劫难逃❤", "❤垚垚宝宝❤","❤你很重要❤", "❤我好想你❤", "❤每天都很爱你❤", "❤想和你长长久久❤", "❤I Love You❤", "❤原来你就是我自负的胆量❤", "❤以后再也不凶你啦❤", "❤每天都很爱你❤", "❤以后再也不凶你啦❤");
  
                 var heart = document.createElement("b"); //创建b元素
                 heart.onselectstart = new Function('event.returnValue=false'); //防止拖动
@@ -283,7 +283,7 @@
                     y = event.clientY - f, // 纵坐标
                     c = randomColor(), // 随机颜色
                     a = 1, // 透明度
-                    s = 1.2; // 放大缩小
+                    s = 3; // 放大缩小
  
                 var timer = setInterval(function () { //添加定时器
                     if (a <= 0) {
