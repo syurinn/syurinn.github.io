@@ -20,34 +20,6 @@
             flex-direction: column;
         }
 
-        /* 模拟顶部导航栏 */
-        .header {
-            background-color: #fff;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid #e0e0e0;
-            font-size: 17px;
-            font-weight: 500;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .header .back-icon {
-            position: absolute;
-            left: 15px;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .header .more-icon {
-            position: absolute;
-            right: 15px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
         /* 页面容器 */
         .page {
             flex: 1;
@@ -169,12 +141,6 @@
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <span class="back-icon" id="header-back">✕</span>
-        <span>参保证明防伪</span>
-        <span class="more-icon">•••</span>
-    </div>
 
     <div id="page-result" class="page active">
         <div class="result-content">
