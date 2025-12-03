@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>参保证明防伪</title>
+    <!-- 【修改点】添加了 favicon 图标引用 -->
+    <link rel="icon" href="favicon.ico">
+    
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +16,7 @@
         }
 
         body {
-            /* 页面整体背景 */
+            /* 页面整体背景 #f7f7f7 */
             background-color: #f7f7f7;
             color: #333;
             height: 100vh;
@@ -37,7 +40,7 @@
         /* ================= 结果页样式 ================= */
         .result-content {
             flex: 1;
-            /* 【修改点 1】此处原为 #fff，现修改为 #f7f7f7 */
+            /* 背景保持灰色 */
             background-color: #f7f7f7; 
             display: flex;
             flex-direction: column;
@@ -104,7 +107,7 @@
         }
 
         .input-group {
-            /* 【修改点 2】此处原为 #fff，现修改为 #f7f7f7 */
+            /* 背景保持灰色 */
             background-color: #f7f7f7;
             padding: 15px;
             display: flex;
@@ -128,7 +131,6 @@
             border: none;
             outline: none;
             font-size: 15px;
-            /* 【修改点 3】确保输入框本身没有白色背景 */
             background-color: transparent; 
         }
         
@@ -150,9 +152,7 @@
     <!-- 结果页 -->
     <div id="page-result" class="page active">
         <div class="result-content">
-            <!-- 只有图片保留原样 -->
             <img src="cert.jpg" alt="参保证明" class="cert-image">
-            
             <div class="save-tip">长按图片可进行保存!!!</div>
         </div>
         
@@ -163,7 +163,6 @@
 
     <!-- 查询页 -->
     <div id="page-query" class="page">
-        <!-- 提示框保留了黄色以便阅读，如需也变灰可修改 tips-box 样式 -->
         <div class="tips-box">
             <div class="tips-title">小贴士</div>
             <div class="tips-text">
@@ -182,21 +181,17 @@
     </div>
 
     <script>
-        // 获取元素
         const pageResult = document.getElementById('page-result');
         const pageQuery = document.getElementById('page-query');
         const btnReturn = document.getElementById('btn-return');
         const btnQuery = document.getElementById('btn-query');
 
-        // 逻辑：点击“返回” -> 跳转到查询页
         btnReturn.addEventListener('click', function() {
             pageResult.classList.remove('active');
             pageQuery.classList.add('active');
         });
 
-        // 逻辑：点击“查询” -> 跳转回结果页
         btnQuery.addEventListener('click', function() {
-            // 模拟加载感
             const originalText = btnQuery.innerText;
             btnQuery.innerText = '查询中...';
             
